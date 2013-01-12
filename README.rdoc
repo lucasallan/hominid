@@ -39,6 +39,10 @@ You do not need to pass your api_key to each method, as that is done automatical
   h.get_account_details
   # Get all lists associated with this API key
   h.lists
+  # Get all lists with pagination
+  h.lists({}, page_number, limit_by_page)
+  # Get all lists with pagination in the same order that they appear in the mailchimp
+  h.lists({}, page_number, limit_by_page, 'web', 'ASC')
   # Subscribe 'joe@public.com', with merge variables 'FNAME' and 'LNAME', to the list identified by list_id
   h.list_subscribe(list_id, 'joe@public.com', {'FNAME' => 'Joe', 'LNAME' => 'Public'}, 'html', false, true, true, false)
   h.list_batch_subscribe(list_id, [{:EMAIL => 'joe@public.com', :EMAIL_TYPE => 'html'}, {:EMAIL => 'jane@doe.com', :EMAIL_TYPE => 'html'}])
